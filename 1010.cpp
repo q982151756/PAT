@@ -30,9 +30,9 @@ int cmp(char n2[],long long radix,long long t)
 {
 	int len=strlen(n2);
 	long long num=convertToTen(n2,radix);
-	if(num<t) return -1;
-	if(num>t) return 1;
-	if(num==t) return 0;
+	if(num < 0) return 1;//考虑溢出，溢出后返回负数 
+    	if(num < t) return -1;
+    	return (t == num) ? 0 : 1;
 }
 long long bs(char n2[],long long left,long long right,long long t)
 {
